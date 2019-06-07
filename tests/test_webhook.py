@@ -21,7 +21,9 @@ class TestWebhook(unittest.TestCase):
         webhook = Webhook(app)
 
         # THEN
-        app.add_url_rule.assert_called_once_with("/postreceive", view_func=webhook._postreceive, methods=["POST"])
+        app.add_url_rule.assert_called_once_with(
+            rule="/postreceive", endpoint="/postreceive", view_func=webhook._postreceive, methods=["POST"]
+        )
 
 
 # -----------------------------------------------------------------------------
