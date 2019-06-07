@@ -10,7 +10,7 @@ setup(
     license="Apache 2.0",
     packages=["github_webhook"],
     install_requires=["flask", "six"],
-    tests_require=["mock", "nose"],
+    tests_require=["mock"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Framework :: Flask",
@@ -25,5 +25,4 @@ setup(
         "Programming Language :: Python :: 3",
         "Topic :: Software Development :: Version Control",
     ],
-    test_suite="nose.collector",
 )

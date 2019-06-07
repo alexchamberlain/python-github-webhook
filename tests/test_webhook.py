@@ -1,9 +1,5 @@
 """Tests for github_webhook.webhook"""
 
-from __future__ import print_function
-
-import unittest
-
 try:
     from unittest.mock import Mock
 except ImportError:
@@ -12,18 +8,17 @@ except ImportError:
 from github_webhook.webhook import Webhook
 
 
-class TestWebhook(unittest.TestCase):
-    def test_constructor(self):
-        # GIVEN
-        app = Mock()
+def test_constructor():
+    # GIVEN
+    app = Mock()
 
-        # WHEN
-        webhook = Webhook(app)
+    # WHEN
+    webhook = Webhook(app)
 
-        # THEN
-        app.add_url_rule.assert_called_once_with(
-            rule="/postreceive", endpoint="/postreceive", view_func=webhook._postreceive, methods=["POST"]
-        )
+    # THEN
+    app.add_url_rule.assert_called_once_with(
+        rule="/postreceive", endpoint="/postreceive", view_func=webhook._postreceive, methods=["POST"]
+    )
 
 
 # -----------------------------------------------------------------------------
