@@ -3,6 +3,7 @@
 from __future__ import print_function
 
 import unittest
+
 try:
     from unittest.mock import Mock
 except ImportError:
@@ -12,7 +13,6 @@ from github_webhook.webhook import Webhook
 
 
 class TestWebhook(unittest.TestCase):
-
     def test_constructor(self):
         # GIVEN
         app = Mock()
@@ -21,8 +21,8 @@ class TestWebhook(unittest.TestCase):
         webhook = Webhook(app)
 
         # THEN
-        app.add_url_rule.assert_called_once_with(
-            '/postreceive', view_func=webhook._postreceive, methods=['POST'])
+        app.add_url_rule.assert_called_once_with("/postreceive", view_func=webhook._postreceive, methods=["POST"])
+
 
 # -----------------------------------------------------------------------------
 # Copyright 2015 Bloomberg Finance L.P.
